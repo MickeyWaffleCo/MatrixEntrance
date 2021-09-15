@@ -97,7 +97,7 @@
     
     <div class="choiceContainer">
         <div class="redPillContainer pillContainer">
-            <div class="pillImageContainer" onclick="startAnimation()">
+            <div class="pillImageContainer" onclick="redPill()">
                 <div class="pillImage"></div>
             </div>
         </div>
@@ -105,11 +105,9 @@
             <p>The Choice is Yours...</p>
         </div>
         <div class="bluePillContainer pillContainer">
-            <a href="https://www.universalorlando.com/web/en/us">
-                <div class="pillImageContainer">
-                    <div class="pillImage"></div>
-                </div>
-            </a>
+            <div class="pillImageContainer" onclick="bluePill()">
+                <div class="pillImage"></div>
+            </div>
         </div>
     </div>
 
@@ -120,10 +118,16 @@
         var overlay = document.querySelector(".overlay");
         var iterationCount = 0;
 
-        function startAnimation () {
+        function redPill() {
 
             overlay.style.display = "block";
             AnimationStep();
+
+        }
+
+        function bluePill() {
+
+            window.location.href = "https://www.universalorlando.com/web/en/us";
 
         }
 
