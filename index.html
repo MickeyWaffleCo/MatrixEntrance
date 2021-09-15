@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>The Choice is Yours...</title>
+    <style>
+
+        html, body {
+
+            width: 100%;
+            height: 100%;
+            margin: 0;
+
+        }
+
+        .choiceContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .instructions {
+
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #222;
+            color: limegreen;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;;
+
+        }
+
+        .pillContainer {
+
+            background: black;
+            height: calc(50% - 50px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .pillContainer .pillImageContainer {
+
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+
+        }
+
+        .pillContainer .pillImageContainer .pillImage {
+
+            width: 100px;
+            height: 30px;
+            margin-top: 35px;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+
+        }
+
+        .pillContainer .pillImageContainer:hover .pillImage {
+            transform: rotate(360deg);
+        }
+
+        .redPillContainer .pillImage {
+            background: rgb(219, 60, 73);
+        }
+
+        .bluePillContainer .pillImage {
+            background: #147fa0;
+        }
+
+        .overlay {
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: limegreen;
+            font-family:'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+
+            display: none;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+    <div class="choiceContainer">
+        <div class="redPillContainer pillContainer">
+            <div class="pillImageContainer" onclick="startAnimation()">
+                <div class="pillImage"></div>
+            </div>
+        </div>
+        <div class="instructions">
+            <p>The Choice is Yours...</p>
+        </div>
+        <div class="bluePillContainer pillContainer">
+            <a href="https://www.universalorlando.com/web/en/us">
+                <div class="pillImageContainer">
+                    <div class="pillImage"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <script>
+
+        var overlay = document.querySelector(".overlay");
+        var iterationCount = 0;
+
+        function startAnimation () {
+
+            overlay.style.display = "block";
+            AnimationStep();
+
+        }
+
+        function AnimationStep() {
+
+            overlay.textContent = generateRandomText(10000);
+
+            if (iterationCount < 10) {
+                iterationCount++;
+                setTimeout(AnimationStep, 500);
+            } else {
+                window.location.href = "https://sites.google.com/view/matrixrestaged/home";
+            }
+
+        }
+
+        function generateRandomText(length) {
+
+            var result = '';
+            var characters = '                                     ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/[]{}()~';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() *
+                    charactersLength));
+            }
+            return result;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
